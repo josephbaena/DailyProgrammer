@@ -1,16 +1,29 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by josephbaena on 9/27/15.
  */
 public class Fibonacci {
 
+    private static Map<Integer, Integer> dpMap = new HashMap<Integer, Integer>();
+
+    public static int dpFibonacci(int n) {
+        if ((n == 0) || (n == 1)) return n; // 0 or 1
+
+        if (!dpMap.containsKey(n)) {
+         dpMap.put(n, dpFibonacci(n - 1) + dpFibonacci(n - 2));
+        }
+
+        return dpMap.get(n);
+    }
+
     // O(2^n) implementation
     public static int recFibonacci(int n) {
-        if (n <= 1) {
-            return n;
-        }
+        if ((n == 0) || (n == 1)) return n; // 0 or 1
+
         return recFibonacci(n - 1) + recFibonacci(n - 2);
     }
 
@@ -39,7 +52,7 @@ public class Fibonacci {
         assert(lengthOfSeries >= 0);
 
         for (int i = 1; i <= lengthOfSeries; i++) {
-            System.out.println(iterFibonacci(i) + "\t");
+            System.out.println(i + ":\t" + dpFibonacci(i));
         }
     }
 }
