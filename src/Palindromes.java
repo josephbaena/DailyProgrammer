@@ -24,9 +24,7 @@ public class Palindromes {
         if (DEBUG) System.out.println("Input = " + input);
 
         // now check if the line is a palindrome
-        boolean palindrome = isPalindrome(input);
-
-        if (palindrome) {
+        if (isPalindrome(input)) {
             System.out.println("Palindrome");
         } else {
             System.out.println("Not a palindrome");
