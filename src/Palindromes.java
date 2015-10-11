@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
  */
 public class Palindromes {
 
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -24,14 +24,14 @@ public class Palindromes {
         if (DEBUG) System.out.println("Input = " + input);
 
         // now check if the line is a palindrome
-        if (isPalindrome(input)) {
+        if (isPalindromeIterative(input)) {
             System.out.println("Palindrome");
         } else {
             System.out.println("Not a palindrome");
         }
     }
 
-    private static boolean isPalindrome(String input) {
+    private static boolean isPalindromeRecursive(String input) {
         if (DEBUG) System.out.println("input = " + input);
 
         if (input.equals("")) {
@@ -52,10 +52,24 @@ public class Palindromes {
             if ((firstIndex + 1) > lastIndex) {
                 return true;
             }
-            return isPalindrome(input.substring(firstIndex + 1, lastIndex));
+            return isPalindromeRecursive(input.substring(firstIndex + 1, lastIndex));
         } else {
             return false;
         }
+    }
+
+    private static boolean isPalindromeIterative(String input) {
+        int leftHand = 0;
+        int rightHand = input.length() - 1;
+
+        while (rightHand > leftHand) {
+            if (input.charAt(leftHand) != input.charAt(rightHand)) {
+                return false;
+            }
+            leftHand++;
+            rightHand--;
+        }
+        return true;
     }
 
 }
