@@ -11,7 +11,7 @@ public class SortedMatrixSearch {
                 { 7, 11, 12, 14 },
                 { 8, 13, 16, 17 } };
 
-        System.out.println("Enter a number tos earch for:");
+        System.out.println("Enter a number to search for:");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int target = Integer.parseInt(reader.readLine());
 
