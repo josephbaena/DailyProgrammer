@@ -2,9 +2,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-/**
- * Created by josephbaena on 11/5/15.
- */
 public class BalanceParentheses {
     //  Given a string of opening and closing parentheses, check whether it’s balanced.
     // We have 3 types of parentheses: round brackets: (), square brackets: [], and curly brackets: {}.
@@ -39,8 +36,7 @@ public class BalanceParentheses {
 
     private static boolean isBalancedRec(String str, int amount) {
         if (str.isEmpty()) {
-            if (amount == 0) return true;
-            return false;
+            return amount == 0;
         }
 
         char curr = str.charAt(0);
