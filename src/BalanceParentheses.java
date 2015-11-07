@@ -30,8 +30,8 @@ public class BalanceParentheses {
                 if (stack.pop() != parenthesesMap.get(currentCharacter)) return false;
             }
         }
-        if (!stack.empty()) return false;
-        return true;
+
+        return stack.empty();
     }
 
     private static boolean isBalancedRec(String str, int amount) {
