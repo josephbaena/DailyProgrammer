@@ -3,7 +3,7 @@ import java.util.Set;
 
 // Given a sorted integer array and an integer k,
 // find two numbers which sum up to k.
-public class SumUpToK {
+public class TwoNumbersSumUpToK {
 
     public static void main(String[] args) {
         // given: sorted array, k
