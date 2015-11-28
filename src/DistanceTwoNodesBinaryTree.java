@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Find the distance between two nodes in a binary tree.
-public class DistanceTwoNodesBST {
+public class DistanceTwoNodesBinaryTree {
 
     public static void main(String[] args) {
         Node tree = constructSampleBinaryTree();
