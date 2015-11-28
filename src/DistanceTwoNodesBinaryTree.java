@@ -7,7 +7,7 @@ public class DistanceTwoNodesBinaryTree {
     public static void main(String[] args) {
         Node tree = constructSampleBinaryTree();
 
-        int value1 = 2;
+        int value1 = 4;
         int value2 = 7;
         System.out.println("The distance between nodes with values " + value1 + " and " + value2 + " is " +
                 findDistance(tree, value1, value2));
