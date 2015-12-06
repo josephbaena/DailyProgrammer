@@ -9,7 +9,7 @@ public class MaxValueOfGifts {
     public static void main(String[] args) {
         int[][] board = {{1, 10, 3, 8}, {12, 2, 9, 6}, {5, 7, 4, 11}, {3, 7, 16, 5}};
 
-        System.out.println("The maximum value of gifts on the board is " + maxValue(board) + ".");
+        System.out.println("The maximum value of gifts on the board is " + maxValueOptimized(board) + ".");
     }
 
     private static int maxValue(int[][] board) {
@@ -23,11 +23,11 @@ public class MaxValueOfGifts {
                 int left = 0, above = 0;
 
                 if (i > 0) {
-                    left = maxValuesBoard[i-1][j];
+                    above = maxValuesBoard[i-1][j];
                 }
 
                 if (j > 0) {
-                    above = maxValuesBoard[i][j-1];
+                    left = maxValuesBoard[i][j-1];
                 }
 
                 maxValuesBoard[i][j] = Math.max(left, above) + board[i][j];
@@ -35,6 +35,31 @@ public class MaxValueOfGifts {
         }
 
         return maxValuesBoard[nRows-1][nCols-1];
+    }
+
+    private static int maxValueOptimized(int[][] board) {
+        int nRows = board.length;
+        int nCols = board[0].length;
+
+        int[] maxValuesBoard = new int[nCols];
+
+        for (int i = 0; i < nRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+                int left = 0, above = 0;
+
+                if (i > 0) {
+                    above = maxValuesBoard[j];
+                }
+
+                if (j > 0) {
+                    left = maxValuesBoard[j-1];
+                }
+
+                maxValuesBoard[j] = Math.max(left, above) + board[i][j];
+            }
+        }
+
+        return maxValuesBoard[nCols-1];
     }
 
 }
